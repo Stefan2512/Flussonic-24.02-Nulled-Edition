@@ -46,14 +46,16 @@ User=root
 WantedBy=multi-user.target
 EOF
 
+# Enable and start service
 systemctl daemon-reexec
 systemctl daemon-reload
 systemctl enable flussonic
 systemctl start flussonic
 
-# Afiseaza info
+# Afișează informații
 local_ip=$(hostname -I | awk '{print $1}')
 echo ""
 echo "${warn}${bold}Flussonic running at: http://$local_ip:80${reset}"
-echo "${warn}${bold}Username: admin | Password: admin${reset}"
-echo "${warn}${bold}Crack License: l4|AbOFvyPq7piW0ub_MfFUL2|r6BzpmVPpjgKpn9IunpFp6lLbCZOp3${reset}"
+echo "${warn}${bold}Username: admin${reset}"
+echo "${warn}${bold}Password: admin${reset}"
+echo "${warn}${bold}License Key: l4|AbOFvyPq7piW0ub_MfFUL2|r6BzpmVPpjgKpn9IunpFp6lLbCZOp3${reset}"
